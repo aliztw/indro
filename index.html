@@ -152,8 +152,8 @@
 
             <div class="flex flex-col lg:flex-row items-center gap-16">
                 <div class="w-full lg:w-1/2 flex justify-center">
-                    <div class="w-full max-w-md aspect-square overflow-hidden border-stone-50 bg-stone-50 group">
-                        <img id="symptoms-hero-img" src="https://aliztw.github.io/indro//relation.png" alt="五行節拍圖示" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-90 group-hover:opacity-100">
+                    <div class="w-full max-w-md aspect-square overflow-hidden rounded-[3rem] border border-stone-100 bg-stone-50 group shadow-lg">
+                        <img id="symptoms-hero-img" src="https://aliztw.github.io/indro//relation.png" alt="五行節拍圖示" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                     </div>
                 </div>
                 <div class="w-full lg:w-1/2 space-y-8">
@@ -234,18 +234,18 @@
     
     <!-- 整合後的 JavaScript 邏輯 -->
     <script>
-        // 設定 GitHub 圖片基礎路徑 (請根據您的 GitHub Pages 網址修改)
+        // 設定 GitHub 圖片基礎路徑
         const IMAGE_BASE_URL = 'https://aliztw.github.io/indro/';
 
         const LIFE_PATH_NUMBERS = [
             { id: 1, role: "1號人｜開創者", keywords: ["果斷", "創新", "領導力"], description: "你是超級行動派，敢冒險、不服輸的開創先鋒。", color: "text-el-wood", bgGradient: "from-el-wood/20 to-transparent", imageFileName: "星球_1.png" },
-            { id: 2, role: "2號人｜協調者", keywords: ["溫柔", "支持", "共感力"], description: "你是細膩的請聽者，擅長在人際中成為潤滑劑。", color: "text-el-water", bgGradient: "from-el-water/20 to-transparent", imageFileName: "星球_2.png" },
+            { id: 2, role: "2號人｜協調者", keywords: ["溫柔", "支持", "共感力"], description: "你是細膩的傾聽者，擅長在人際中成為潤滑劑。", color: "text-el-water", bgGradient: "from-el-water/20 to-transparent", imageFileName: "星球_2.png" },
             { id: 3, role: "3號人｜表達者", keywords: ["熱情", "樂觀", "感染力"], description: "你用熱情點亮世界，擁有點燃氣氛的強大感染力。", color: "text-el-fire", bgGradient: "from-el-fire/20 to-transparent", imageFileName: "星球_3.png" },
             { id: 4, role: "4號人｜建設者", keywords: ["穩定", "負責", "踏實"], description: "你是注重細節、務實可靠，能把理想落地的人。", color: "text-el-earth", bgGradient: "from-el-earth/20 to-transparent", imageFileName: "星球_4.png" },
             { id: 5, role: "5號人｜探索者", keywords: ["自由", "靈活", "創意"], description: "你對新鮮事物充滿好奇心，勇於打破框架前行。", color: "text-orange-500", bgGradient: "from-orange-500/20 to-transparent", imageFileName: "星球_5.png" },
             { id: 6, role: "6號人｜照顧者", keywords: ["溫暖", "責任", "愛的給予"], description: "你樂於照顧他人，是溫暖又包容的療癒存在。", color: "text-amber-700", bgGradient: "from-amber-700/20 to-transparent", imageFileName: "星球_6.png" },
             { id: 7, role: "7號人｜思考者", keywords: ["理性", "深思", "追求真理"], description: "你善於冷靜分析與探索真理，是天生的洞察者。", color: "text-el-metal", bgGradient: "from-el-metal/20 to-transparent", imageFileName: "星球_7.png" },
-            { id: 8, role: "8號人｜實踐者", keywords: ["權威", "成就", "掌控力"], description: "你是統籌全局，畫理想為現實的執行高手。", color: "text-yellow-600", bgGradient: "from-yellow-600/20 to-transparent", imageFileName: "星球_8.png" },
+            { id: 8, role: "8號人｜實踐者", keywords: ["權威", "成就", "掌控力"], description: "你是統籌全局，化理想為現實的執行高手。", color: "text-yellow-600", bgGradient: "from-yellow-600/20 to-transparent", imageFileName: "星球_8.png" },
             { id: 9, role: "9號人｜奉獻者", keywords: ["慈悲", "同理", "靈性"], description: "你有強烈的使命感，願為世界付出與療癒他人。", color: "text-blue-500", bgGradient: "from-blue-500/20 to-transparent", imageFileName: "星球_9.png" },
         ];
 
@@ -275,7 +275,7 @@
         }
 
         function init() {
-            // 1. 攔截所有以 # 開頭的連結點擊事件
+            // 1. 攔截錨點跳轉
             document.addEventListener('click', (e) => {
                 const target = e.target;
                 const anchor = target.closest('a');
@@ -337,11 +337,11 @@
                     desktopContent.innerHTML += `
                         <div class="py-16 px-4 flex flex-col items-center space-y-12">
                           <div class="flex flex-col items-center text-center">
-                            <span class="text-ml text-stone-400 mb-3 tracking-widest font-bold uppercase">生命靈數</span>
+                            <span class="text-sm text-stone-400 mb-3 tracking-widest font-bold uppercase">生命靈數</span>
                             <span class="text-3xl font-serif font-bold text-stone-800 tracking-tighter">${el.numbers.join('、')}</span>
                           </div>
                           <div class="flex flex-col items-center text-center">
-                            <span class="text-ml text-stone-400 mb-3 tracking-widest font-bold uppercase">中醫體質</span>
+                            <span class="text-sm text-stone-400 mb-3 tracking-widest font-bold uppercase">中醫體質</span>
                             <div class="space-y-1">${el.constitutions.map(c => `<span class="block text-base text-stone-700 font-serif font-bold">${c}</span>`).join('')}</div>
                           </div>
                         </div>
@@ -385,17 +385,30 @@
             if (numContainer) {
                 LIFE_PATH_NUMBERS.forEach(n => {
                     numContainer.innerHTML += `
-                        <div class="group bg-white rounded-[3rem] p-10 shadow-sm hover:shadow-xl transition-all duration-300 border border-transparent hover:border-brand-gold/20 flex flex-col items-center text-center relative overflow-hidden">
+                        <div class="group bg-white rounded-[3rem] p-10 shadow-sm hover:shadow-xl transition-all duration-300 border border-transparent hover:border-brand-gold/20 flex flex-col items-center text-center relative">
                             
-                            <div class="relative mb-8 mt-6 ">
-                               <div class="absolute inset-0 bg-gradient-to-br ${n.bgGradient} rounded-full blur-2xl opacity-0 group-hover:opacity-40 transition-opacity duration-700"></div>
-                               <div class="relative h-32 overflow-hidden border-4 border-white group-hover:scale-110 transition-transform duration-500 z-10">
-                                  <img src="${IMAGE_BASE_URL}${n.imageFileName}" alt="${n.role}" class="w-full h-full object-cover" onerror="this.src='https://api.dicebear.com/7.x/shapes/svg?seed=${n.id}'" />
+                            <!-- 數字標籤 -->
+                            <div class="absolute top-6 left-6 bg-stone-50/80 backdrop-blur-sm px-4 py-1.5 border border-stone-100 z-20 flex items-center gap-2 rounded-full shadow-sm">
+                              <div class="h-2 w-2 rounded-full ${n.color.replace('text-', 'bg-')}"></div>
+                              <span class="text-sm font-serif font-bold text-stone-600 tracking-widest">生命靈數 ${n.id}</span>
+                            </div>
+
+                            <!-- 圖片容器：優化手機完整呈現 -->
+                            <div class="relative w-48 h-48 mb-6 mt-10 flex items-center justify-center">
+                               <div class="absolute inset-0 bg-gradient-to-br ${n.bgGradient} rounded-full blur-2xl opacity-0 group-hover:opacity-30 transition-opacity duration-700"></div>
+                               <div class="relative w-full h-full transition-transform duration-700 group-hover:rotate-12 group-hover:scale-110 z-10">
+                                  <img src="${IMAGE_BASE_URL}${n.imageFileName}" alt="${n.role}" class="w-full h-full object-contain" onerror="this.src='https://api.dicebear.com/7.x/shapes/svg?seed=${n.id}'" />
                                </div>
                             </div>
+
                             <h4 class="text-2xl font-serif font-bold text-stone-800 mb-4 tracking-wide">${n.role}</h4>
-                            <div class="flex flex-wrap justify-center gap-2 mb-6">${n.keywords.map(k => `<span class="text-[12px] bg-stone-100 text-stone-400 px-3 py-1 font-bold tracking-wider uppercase rounded-full">${k}</span>`).join('')}</div>
-                            <p class="text-stone-600 text-md leading-relaxed font-light">${n.description}</p>
+                            
+                            <!-- 關鍵字標籤 -->
+                            <div class="flex flex-wrap justify-center gap-2 mb-6">
+                                ${n.keywords.map(k => `<span class="text-sm bg-stone-50 text-stone-500 px-4 py-1 font-medium tracking-wider rounded-full border border-stone-100 shadow-sm">${k}</span>`).join('')}
+                            </div>
+
+                            <p class="text-stone-600 text-md leading-relaxed font-light px-4">${n.description}</p>
                         </div>
                     `;
                 });
