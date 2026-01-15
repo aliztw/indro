@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2026 台灣精油芳療年會 | 能量探索</title>
+    
+    <!-- 字體與 Tailwind CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons (CDN) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                        serif: ['"Noto Serif TC"', 'serif'],
+                    },
+                    colors: {
+                        'el-wood': '#8b934e',
+                        'el-fire': '#943425',
+                        'el-earth': '#865f41',
+                        'el-metal': '#deab47',
+                        'el-water': '#589da9',
+                        'brand-gold': '#c5a059',
+                    },
+                    backgroundImage: {
+                        'paper-texture': "url('https://www.transparenttextures.com/patterns/paper.png')",
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        html { scroll-behavior: smooth; }
+        body { background-color: #f5f3ef; color: #444; }
+        
+        /* 滾動後的導覽列樣式 */
+        .nav-scrolled { background-color: rgba(28, 25, 23, 0.95) !important; padding-top: 1rem !important; padding-bottom: 1rem !important; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
+        .nav-scrolled #nav-container { color: white !important; }
+        .nav-scrolled .scroll-link { color: #d6d3d1 !important; }
+        .nav-scrolled .scroll-link:hover { color: #c5a059 !important; }
+        .nav-scrolled #mobile-menu-btn { color: white !important; }
+
+        .app-container {
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+        }
+        @media (min-width: 768px) { .app-container { padding-left: 3rem; padding-right: 3rem; } }
+        @media (min-width: 1024px) { .app-container { max-width: 1000px; } }
+        @media (min-width: 1280px) { .app-container { max-width: 1140px; } }
+        @media (min-width: 1366px) { .app-container { max-width: 1200px; } }
+        @media (min-width: 1536px) { .app-container { max-width: 1320px; } }
+    </style>
+</head>
+<body class="font-sans selection:bg-brand-gold selection:text-white">
+
+    <!-- 導覽列 -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-6 bg-transparent">
+        <div class="app-container flex justify-between items-center text-stone-800 transition-colors duration-300" id="nav-container">
+            <!-- Logo -->
+            <a href="#hero" class="scroll-link">
+                <div class="flex items-center space-x-2 cursor-pointer group">
+                    <img src="https://img.shoplineapp.com/media/image_clips/693fd310ce43e58dabfdaa56/original.png?1765790479=&owner_id=5caf39294d91a10001727c79" alt="Logo" class="w-10 h-10 object-contain">
+                    <div class="flex flex-col">
+                        <span class="font-serif text-lg lg:text-2xl font-bold leading-none tracking-widest">2026台灣精油芳療年會</span>
+                        <span class="text-[10px] lg:text-xs tracking-wider opacity-80">Taiwan Aromatherapy Conference</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center space-x-8 nav-links">
+                <a href="#hero" class="hover:text-brand-gold transition-colors text-sm lg:text-base tracking-widest font-medium scroll-link">回頂部</a>
+                <a href="#personality" class="hover:text-brand-gold transition-colors text-sm lg:text-base tracking-widest font-medium scroll-link">能量對應</a>
+                <a href="#symptoms" class="hover:text-brand-gold transition-colors text-sm lg:text-base tracking-widest font-medium scroll-link">五行關係</a>
+                <a href="#care" class="hover:text-brand-gold transition-colors text-sm lg:text-base tracking-widest font-medium scroll-link">九大體質</a>
+                <a href="#wood-eyes-game" class="hover:text-brand-gold transition-colors text-sm lg:text-base tracking-widest font-medium scroll-link">生命靈數</a>
+            </div>
+
+            <!-- Mobile Toggle -->
+            <div class="md:hidden">
+                <button id="mobile-menu-btn" class="nav-text hover:text-brand-gold transition-colors flex items-center">
+                    <i data-lucide="menu"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-stone-900 border-t border-stone-800 p-6 flex flex-col space-y-4 shadow-xl z-40">
+            <a href="#hero" class="mobile-link text-left text-white hover:text-amber-400 py-2 border-b border-stone-800/50 scroll-link">回頂部</a>
+            <a href="#personality" class="mobile-link text-left text-white hover:text-amber-400 py-2 border-b border-stone-800/50 scroll-link">能量對應</a>
+            <a href="#symptoms" class="mobile-link text-left text-white hover:text-amber-400 py-2 border-b border-stone-800/50 scroll-link">五行關係</a>
+            <a href="#care" class="mobile-link text-left text-white hover:text-amber-400 py-2 border-b border-stone-800/50 scroll-link">九大體質</a>
+            <a href="#wood-eyes-game" class="mobile-link text-left text-white hover:text-amber-400 py-2 scroll-link">生命靈數</a>
+        </div>
+    </nav>
+
+    <!-- 1. 能量對應 -->
+    <section id="hero" class="h-px w-full pointer-events-none"></section>
+    <section id="personality" class="relative pt-40 pb-24 bg-paper-texture scroll-mt-20 overflow-hidden">
+        <div class="absolute top-0 right-0 w-1/3 h-full bg-el-wood/5 -skew-x-12 translate-x-32"></div>
+        <div class="max-w-6xl mx-auto px-6 relative z-10 text-center">
+            <h1 class="text-5xl md:text-6xl font-serif font-bold text-stone-800 mb-12 leading-[1.2]" style="line-height:1.2;">
+                從生命靈數 <br/> <span class="text-brand-gold">看見你的五行能量</span>
+            </h1>
+            <div class="max-w-2xl mx-auto space-y-6 text-lg text-stone-600 font-light leading-relaxed mb-20">
+                <p>從生命靈數出發，打開你的五行能量地圖<br>順著天地的韻律、隨著植物的香氣前行<br>讓我們去發現、去體驗、去理解</p>
+            </div>
+
+            <!-- 五行能量卡片區 -->
+            <div class="bg-white rounded-[3rem] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] overflow-hidden border border-stone-100 max-w-5xl mx-auto">
+                <div class="hidden md:block">
+                    <div id="desktop-elements-header" class="grid grid-cols-5 bg-stone-50 py-12 border-b border-stone-100"></div>
+                    <div id="desktop-elements-content" class="grid grid-cols-5 divide-x divide-stone-100"></div>
+                </div>
+                <div id="mobile-elements-container" class="md:hidden divide-y divide-stone-100"></div>
+            </div>
+            <br><br>
+            <div class="max-w-2xl mx-auto space-y-6 text-lg text-stone-600 font-light leading-relaxed mb-20">
+                <p>每個人都有自己的五行節奏<br>平衡時就是平和體質<br>失衡時，就容易出現對應的體質與症狀<br>認識五行，學習回到自己的中心</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. 五行節拍 -->
+    <section id="symptoms" class="py-24 bg-white scroll-mt-20">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-serif font-bold text-stone-800 mb-6 leading-[1.2]  style="line-height:1.2;">
+                    五行不是玄學 <br/> <span class="text-el-fire">是你每天的能量節拍</span>
+                </h2>
+                <div class="w-24 h-1 bg-brand-gold mx-auto mb-8"></div>
+            </div>
+
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <div class="w-full lg:w-1/2 flex justify-center">
+                    <div class="w-full max-w-md aspect-square rounded-[3rem] overflow-hidden shadow-xl border border-stone-50 bg-stone-50 group">
+                        <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=800&q=80" alt="五行節拍圖示" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-90 group-hover:opacity-100">
+                    </div>
+                </div>
+                <div class="w-full lg:w-1/2 space-y-8">
+                    <div class="glass-card p-8 rounded-3xl border-l-4 border-brand-gold shadow-sm">
+                        <h3 class="text-2xl font-serif font-bold text-stone-800 mb-4">相生相剋的哲學</h3>
+                        <div class="space-y-4">
+                            <p class="flex items-start gap-3">
+                                <span class="text-brand-gold font-bold">相生：</span>
+                                <span class="text-stone-600">是能量推進、互相滋養。</span>
+                            </p>
+                            <p class="flex items-start gap-3">
+                                <span class="text-brand-gold font-bold">相剋：</span>
+                                <span class="text-stone-600">是適度節制、維持平衡。</span>
+                            </p>
+                        </div>
+                    </div>
+                    <p class="text-xl text-stone-700 font-serif leading-relaxed text-center lg:text-left">
+                        找到你的五行合拍與磨合關係 <br/>
+                        <span class="font-bold border-b-2 border-brand-gold mt-4 inline-block">學習看見自己的力量</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. 九大體質 -->
+    <section id="care" class="py-24 bg-stone-50 scroll-mt-20">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-serif font-bold text-stone-800 mb-4 tracking-widest">九大體質</h2>
+                <p class="text-xl text-stone-500 font-serif">揭開你的身體密碼</p>
+            </div>
+            <div id="constitutions-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-10"></div>
+        </div>
+    </section>
+
+    <!-- 4. 九大生命靈數 -->
+    <section id="wood-eyes-game" class="py-24 bg-white scroll-mt-20">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-serif font-bold text-stone-800 mb-4 tracking-widest">九大生命靈數</h2>
+                <p class="text-xl text-stone-500 font-serif">找到你的個性、天賦與原動力</p>
+            </div>
+            <div id="numbers-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-10"></div>
+        </div>
+    </section>
+
+    <footer id="footer" class="bg-stone-900 text-stone-400 py-16 mt-auto">
+        <div class="app-container">
+            <div class="grid md:grid-cols-4 gap-12 mb-12 border-b border-stone-800 pb-12">
+                <div class="col-span-1 md:col-span-2 space-y-4">
+                    <h3 class="text-white text-2xl md:text-3xl lg:text-4xl font-serif">2026 台灣精油芳療年會</h3>
+                    <p class="text-sm md:text-base lg:text-lg leading-relaxed max-w-md">致力於推廣正統芳香療法，結合東方五行哲學與西方科學實證，為現代人尋找身心平衡的自然處方。</p>
+                </div>
+                <div class="space-y-4">
+                    <h4 class="text-white font-bold tracking-wider text-base md:text-lg lg:text-xl uppercase">快速連結</h4>
+                    <ul class="space-y-2 text-sm md:text-base lg:text-base">
+                        <li><a href="#" class="hover:text-amber-500">年會限定優惠</a></li>
+                    </ul>
+                </div>
+                <div class="space-y-4">
+                    <h4 class="text-white font-bold tracking-wider text-base md:text-lg lg:text-xl uppercase">聯絡我們</h4>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/ALIZTW" class="flex-shrink-0 w-10 h-10 md:w-11 md:h-11 lg:w-12 lg:h-12 rounded-full bg-stone-800 flex items-center justify-center hover:bg-amber-600 hover:text-white transition-all"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                        <a href="https://www.instagram.com/aliz_aromacreator/" class="flex-shrink-0 w-10 h-10 md:w-11 md:h-11 lg:w-12 lg:h-12 rounded-full bg-stone-800 flex items-center justify-center hover:bg-amber-600 hover:text-white transition-all"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                        <a href="https://lin.ee/ZwEOveq" class="flex-shrink-0 w-10 h-10 md:w-11 md:h-11 lg:w-12 lg:h-12 rounded-full bg-stone-800 flex items-center justify-center hover:bg-amber-600 hover:text-white overflow-hidden group transition-all">
+                             <div class="w-full h-full flex items-center justify-center text-[10px] font-bold text-white">LINE</div>
+                        </a>
+                        <a href="https://www.aliztwshop.com/" class="flex-shrink-0 w-10 h-10 md:w-11 md:h-11 lg:w-12 lg:h-12 rounded-full bg-stone-800 flex items-center justify-center hover:bg-amber-600 hover:text-white transition-all"><i data-lucide="globe" class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-between text-xs md:text-sm lg:text-sm">
+                <p>&copy; 2026 Taiwan Aromatherapy Conference.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- 整合後的 JavaScript 邏輯 -->
+    <script>
+        const LIFE_PATH_NUMBERS = [
+            { id: 1, role: "開創者", keywords: ["領導", "獨立", "自信"], description: "天生的領導者，擁有極強的開創能力與自主意識。", color: "text-el-wood", bgGradient: "from-el-wood/20 to-transparent", imageUrl: "https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?auto=format&fit=crop&w=400&q=80" },
+            { id: 2, role: "協調者", keywords: ["合作", "敏感", "平衡"], description: "擅長溝通與協調，擁有敏銳的直覺與強大的同理心。", color: "text-el-water", bgGradient: "from-el-water/20 to-transparent", imageUrl: "https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?auto=format&fit=crop&w=400&q=80" },
+            { id: 3, role: "表達者", keywords: ["熱情", "創意", "樂觀"], description: "具備卓越的表達能力與藝術細胞，用熱情感染他人。", color: "text-el-fire", bgGradient: "from-el-fire/20 to-transparent", imageUrl: "https://images.unsplash.com/photo-1614732414444-096e5f1122d5?auto=format&fit=crop&w=400&q=80" },
+            { id: 4, role: "建設者", keywords: ["安全", "規律", "可靠"], description: "追求穩定與安全感，做事腳踏實地，是值得信賴的執行者。", color: "text-el-earth", bgGradient: "from-el-earth/20 to-transparent", imageUrl: "https://images.unsplash.com/photo-1614313913007-2b4ae8ce32d6?auto=format&fit=crop&w=400&q=80" },
+            { id: 5, role: "探索者", keywords: ["冒險", "適應", "多才"], description: "嚮往自由與新鮮感，適應力強且充滿創意。", color: "text-orange-500", bgGradient: "from-orange-500/20 to-transparent", imageUrl: "https://images.unsplash.com/photo-1614726365920-567420587d60?auto=format&fit=crop&w=400&q=80" },
+            { id: 6, role: "照顧者", keywords: ["和諧", "責任", "療癒"], description: "充滿愛與責任感，追求環境的和諧，是天生的療癒者。", color: "text-amber-700", bgGradient: "from-amber-700/20 to-transparent", imageUrl: "https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?auto=format&fit=crop&w=400&q=80" },
+            { id: 7, role: "思考者", keywords: ["真理", "分析", "內省"], description: "追求事物的真理與本質，喜歡深入研究並擁抱孤獨。", color: "text-el-metal", bgGradient: "from-el-metal/20 to-transparent", imageUrl: "https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?auto=format&fit=crop&w=400&q=80" },
+            { id: 8, role: "實踐者", keywords: ["力量", "成功", "掌控"], description: "具備強大的意志力與統籌能力，擅長實現願景。", color: "text-yellow-600", bgGradient: "from-yellow-600/20 to-transparent", imageUrl: "https://images.unsplash.com/photo-1614732414444-096e5f1122d5?auto=format&fit=crop&w=400&q=80" },
+            { id: 9, role: "奉獻者", keywords: ["夢想", "靈性", "大愛"], description: "擁有開闊的心胸與人道精神，致力於奉獻與美好。", color: "text-blue-500", bgGradient: "from-blue-500/20 to-transparent", imageUrl: "https://images.unsplash.com/photo-1614726365920-567420587d60?auto=format&fit=crop&w=400&q=80" },
+        ];
+
+        const CONSTITUTIONS = [
+            { id: "peace", name: "平和體質", features: ["面色紅潤", "精神充沛"], description: "氣血調和，最健康穩定的基礎狀態。", imageUrl: "https://api.dicebear.com/7.x/avataaars/svg?seed=Felix", color: "bg-pink-100" },
+            { id: "yang", name: "陽虛體質", features: ["手腳冰冷", "畏寒怕冷"], description: "體內能量不足，容易感到寒冷。", imageUrl: "https://api.dicebear.com/7.x/avataaars/svg?seed=Aria", color: "bg-blue-100" },
+            { id: "qi_def", name: "氣虛體質", features: ["語音低微", "易累氣短"], description: "氣力不足，容易疲倦、出虛汗。", imageUrl: "https://api.dicebear.com/7.x/avataaars/svg?seed=Leo", color: "bg-indigo-100" },
+            { id: "yin", name: "陰虛體質", features: ["手足心熱", "口乾咽燥"], description: "體內水分不足，火氣偏旺。", imageUrl: "https://api.dicebear.com/7.x/avataaars/svg?seed=Luna", color: "bg-orange-100" },
+            { id: "phlegm", name: "痰濕體質", features: ["身體沈重", "舌苔厚膩"], description: "代謝遲緩，體內濕氣重。", imageUrl: "https://api.dicebear.com/7.x/avataaars/svg?seed=Oliver", color: "bg-emerald-100" },
+            { id: "damp_heat", name: "濕熱體質", features: ["面部油垢", "口苦尿黃"], description: "濕與熱互結，體表容易出油。", imageUrl: "https://api.dicebear.com/7.x/avataaars/svg?seed=Zoe", color: "bg-yellow-100" },
+            { id: "blood", name: "血瘀體質", features: ["皮膚暗沉", "易現瘀斑"], description: "氣血運行不暢，皮膚容易出現暗點。", imageUrl: "https://api.dicebear.com/7.x/avataaars/svg?seed=Max", color: "bg-red-100" },
+            { id: "qi_stagnation", name: "氣鬱體質", features: ["多愁善感", "胸脅脹滿"], description: "情緒鬱滯不舒，容易悶悶不樂。", imageUrl: "https://api.dicebear.com/7.x/avataaars/svg?seed=Maya", color: "bg-slate-200" },
+            { id: "special", name: "特稟體質", features: ["過敏體質", "鼻塞流涕"], description: "先天稟賦異常，容易過敏。", imageUrl: "https://api.dicebear.com/7.x/avataaars/svg?seed=Finn", color: "bg-cyan-100" },
+        ];
+
+        const FIVE_ELEMENTS = [
+            { name: "木", kanji: "木", colorClass: "bg-el-wood", numbers: ["1"], constitutions: ["氣鬱體質", "血瘀體質"] },
+            { name: "火", kanji: "火", colorClass: "bg-el-fire", numbers: ["3", "5"], constitutions: ["陰虛體質", "濕熱體質"] },
+            { name: "土", kanji: "土", colorClass: "bg-el-earth", numbers: ["4", "6"], constitutions: ["氣虛體質", "痰濕體質"] },
+            { name: "金", kanji: "金", colorClass: "bg-el-metal", numbers: ["7", "8"], constitutions: ["氣虛體質", "特稟體質"] },
+            { name: "水", kanji: "水", colorClass: "bg-el-water", numbers: ["2", "9"], constitutions: ["陽虛體質", "特稟體質"] },
+        ];
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            if (menu) menu.classList.toggle('hidden');
+        }
+
+        function init() {
+            // 1. 攔截所有以 # 開頭的連結點擊事件，解決 AI Studio 拒絕連線的問題
+            document.addEventListener('click', (e) => {
+                const target = e.target;
+                const anchor = target.closest('a');
+                
+                if (anchor) {
+                    const href = anchor.getAttribute('href');
+                    if (href && href.startsWith('#')) {
+                        // 阻止預設導航行為，避免觸發預覽環境的安全導航錯誤
+                        e.preventDefault();
+                        
+                        const targetId = href.slice(1);
+                        const targetElement = document.getElementById(targetId);
+                        
+                        if (targetElement) {
+                            // 執行平滑捲動
+                            targetElement.scrollIntoView({ behavior: 'smooth' });
+                            
+                            // 如果是在行動版選單點擊，則收合選單
+                            if (anchor.classList.contains('mobile-link')) {
+                                toggleMobileMenu();
+                            }
+                        } else if (targetId === 'hero' || targetId === '') {
+                            // 如果找不到 hero 或連結是空，捲動到頂部
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                        }
+                    }
+                }
+            }, { capture: true });
+
+            // 初始化 Lucide 圖示
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+
+            // 綁定行動版選單按鈕
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            if (mobileMenuBtn) {
+                mobileMenuBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    toggleMobileMenu();
+                });
+            }
+
+            // 處理滾動導覽列視覺變化
+            window.addEventListener('scroll', () => {
+                const navbar = document.getElementById('navbar');
+                if (navbar) {
+                    if (window.scrollY > 20) {
+                        navbar.classList.add('nav-scrolled');
+                    } else {
+                        navbar.classList.remove('nav-scrolled');
+                    }
+                }
+            });
+
+            // 渲染桌面版五行區塊
+            const desktopHeader = document.getElementById('desktop-elements-header');
+            const desktopContent = document.getElementById('desktop-elements-content');
+            const mobileContainer = document.getElementById('mobile-elements-container');
+
+            if (desktopHeader && desktopContent && mobileContainer) {
+                FIVE_ELEMENTS.forEach(el => {
+                    desktopHeader.innerHTML += `
+                        <div class="flex flex-col items-center justify-center">
+                           <div class="${el.colorClass} text-white w-16 h-16 rounded-full flex items-center justify-center text-3xl font-serif font-bold shadow-lg scale-110">${el.kanji}</div>
+                        </div>
+                    `;
+                    desktopContent.innerHTML += `
+                        <div class="py-16 px-4 flex flex-col items-center space-y-12">
+                          <div class="flex flex-col items-center text-center">
+                            <span class="text-xs text-stone-400 mb-3 tracking-widest font-bold uppercase">生命靈數</span>
+                            <span class="text-4xl font-serif font-bold text-stone-800 tracking-tighter">${el.numbers.join('、')}</span>
+                          </div>
+                          <div class="flex flex-col items-center text-center">
+                            <span class="text-xs text-stone-400 mb-3 tracking-widest font-bold uppercase">中醫體質</span>
+                            <div class="space-y-1">${el.constitutions.map(c => `<span class="block text-base text-stone-700 font-serif font-bold">${c}</span>`).join('')}</div>
+                          </div>
+                        </div>
+                    `;
+                    mobileContainer.innerHTML += `
+                        <div class="p-10 flex flex-col items-center text-center space-y-8 bg-white">
+                            <div class="${el.colorClass} text-white w-14 h-14 rounded-full flex items-center justify-center text-2xl font-serif font-bold shadow-lg mb-2">${el.kanji}</div>
+                            <div class="grid grid-cols-2 w-full gap-4">
+                                <div class="flex flex-col items-center border-r border-stone-100">
+                                    <span class="text-[10px] text-stone-400 mb-2 tracking-widest font-bold uppercase">生命靈數</span>
+                                    <span class="text-2xl font-serif font-bold text-stone-800">${el.numbers.join('、')}</span>
+                                </div>
+                                <div class="flex flex-col items-center">
+                                    <span class="text-[10px] text-stone-400 mb-2 tracking-widest font-bold uppercase">中醫體質</span>
+                                    <div class="space-y-0.5">${el.constitutions.map(c => `<span class="block text-sm text-stone-700 font-serif font-bold">${c}</span>`).join('')}</div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+            }
+
+            // 渲染體質卡片
+            const constContainer = document.getElementById('constitutions-grid');
+            if (constContainer) {
+                CONSTITUTIONS.forEach(c => {
+                    constContainer.innerHTML += `
+                        <div class="group bg-white rounded-[3rem] p-10 shadow-sm hover:shadow-xl transition-all duration-300 border border-transparent hover:border-brand-gold/20 flex flex-col items-center text-center relative">
+                            <div class="${c.color} w-32 h-32 rounded-full mb-8 overflow-hidden border-4 border-white shadow-lg group-hover:scale-110 transition-transform duration-500">
+                               <img src="${c.imageUrl}" alt="${c.name}" class="w-full h-full object-cover" />
+                            </div>
+                            <h4 class="text-2xl font-serif font-bold text-stone-800 mb-4">${c.name}</h4>
+                            <div class="flex flex-wrap justify-center gap-2 mb-6">${c.features.map(f => `<span class="text-[10px] bg-stone-100 text-stone-500 px-3 py-1 rounded-full font-bold tracking-wider uppercase border border-stone-200">${f}</span>`).join('')}</div>
+                            <p class="text-stone-600 text-sm leading-relaxed font-light">${c.description}</p>
+                        </div>
+                    `;
+                });
+            }
+
+            // 渲染生命靈數卡片
+            const numContainer = document.getElementById('numbers-grid');
+            if (numContainer) {
+                LIFE_PATH_NUMBERS.forEach(n => {
+                    numContainer.innerHTML += `
+                        <div class="group bg-white rounded-[3rem] p-10 shadow-sm hover:shadow-xl transition-all duration-300 border border-transparent hover:border-brand-gold/20 flex flex-col items-center text-center relative overflow-hidden">
+                            <div class="absolute top-6 left-6 bg-stone-50/80 backdrop-blur-sm px-4 py-1.5 rounded-full shadow-sm border border-stone-100 z-20 flex items-center gap-2">
+                              <div class="w-2 h-2 rounded-full ${n.color.replace('text-', 'bg-')}"></div>
+                              <span class="text-[11px] font-serif font-bold text-stone-600 tracking-widest">生命靈數 ${n.id}</span>
+                            </div>
+                            <div class="relative mb-8 mt-6">
+                               <div class="absolute inset-0 bg-gradient-to-br ${n.bgGradient} rounded-full blur-2xl opacity-0 group-hover:opacity-40 transition-opacity duration-700"></div>
+                               <div class="relative w-32 h-32 rounded-full overflow-hidden border-4 border-white shadow-lg group-hover:scale-110 transition-transform duration-500 z-10">
+                                  <img src="${n.imageUrl}" alt="${n.role}" class="w-full h-full object-cover" />
+                               </div>
+                            </div>
+                            <h4 class="text-2xl font-serif font-bold text-stone-800 mb-4 tracking-wide">${n.role}</h4>
+                            <div class="flex flex-wrap justify-center gap-2 mb-6">${n.keywords.map(k => `<span class="text-[10px] bg-stone-100 text-stone-400 px-3 py-1 rounded-full font-bold tracking-wider uppercase">${k}</span>`).join('')}</div>
+                            <p class="text-stone-600 text-sm leading-relaxed font-light">${n.description}</p>
+                        </div>
+                    `;
+                });
+            }
+        }
+
+        // 執行初始化
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
