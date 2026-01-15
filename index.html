@@ -118,7 +118,7 @@
     <section id="personality" class="relative pt-40 pb-24 bg-paper-texture scroll-mt-20 overflow-hidden">
         <div class="absolute top-0 right-0 w-1/3 h-full bg-el-wood/5 -skew-x-12 translate-x-32"></div>
         <div class="max-w-6xl mx-auto px-6 relative z-10 text-center">
-            <h1 class="text-5xl md:text-6xl font-serif font-bold text-stone-800 mb-12 leading-[1.2]" style="line-height:1.2;">
+            <h1 class="text-4xl md:text-5xl font-serif font-bold text-stone-800 mb-12 leading-[1.2]" style="line-height:1.2;">
                 從生命靈數 <br/> <span class="text-brand-gold">看見你的五行能量</span>
             </h1>
             <div class="max-w-2xl mx-auto space-y-6 text-lg text-stone-600 font-light leading-relaxed mb-20">
@@ -152,7 +152,7 @@
 
             <div class="flex flex-col lg:flex-row items-center gap-16">
                 <div class="w-full lg:w-1/2 flex justify-center">
-                    <div class="w-full max-w-md aspect-square rounded-[3rem] overflow-hidden shadow-xl border border-stone-50 bg-stone-50 group">
+                    <div class="w-full max-w-md aspect-square overflow-hidden border-stone-50 bg-stone-50 group">
                         <img id="symptoms-hero-img" src="https://aliztw.github.io/indro//relation.png" alt="五行節拍圖示" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-90 group-hover:opacity-100">
                     </div>
                 </div>
@@ -337,25 +337,25 @@
                     desktopContent.innerHTML += `
                         <div class="py-16 px-4 flex flex-col items-center space-y-12">
                           <div class="flex flex-col items-center text-center">
-                            <span class="text-xs text-stone-400 mb-3 tracking-widest font-bold uppercase">生命靈數</span>
-                            <span class="text-4xl font-serif font-bold text-stone-800 tracking-tighter">${el.numbers.join('、')}</span>
+                            <span class="text-ml text-stone-400 mb-3 tracking-widest font-bold uppercase">生命靈數</span>
+                            <span class="text-3xl font-serif font-bold text-stone-800 tracking-tighter">${el.numbers.join('、')}</span>
                           </div>
                           <div class="flex flex-col items-center text-center">
-                            <span class="text-xs text-stone-400 mb-3 tracking-widest font-bold uppercase">中醫體質</span>
+                            <span class="text-ml text-stone-400 mb-3 tracking-widest font-bold uppercase">中醫體質</span>
                             <div class="space-y-1">${el.constitutions.map(c => `<span class="block text-base text-stone-700 font-serif font-bold">${c}</span>`).join('')}</div>
                           </div>
                         </div>
                     `;
                     mobileContainer.innerHTML += `
                         <div class="p-10 flex flex-col items-center text-center space-y-8 bg-white">
-                            <div class="${el.colorClass} text-white h-14 flex items-center justify-center text-2xl font-serif font-bold mb-2">${el.kanji}</div>
+                            <div class="${el.colorClass} text-white w-14 h-14 rounded-full flex items-center justify-center text-2xl font-serif font-bold mb-2">${el.kanji}</div>
                             <div class="grid grid-cols-2 w-full gap-4">
                                 <div class="flex flex-col items-center border-r border-stone-100">
-                                    <span class="text-[10px] text-stone-400 mb-2 tracking-widest font-bold uppercase">生命靈數</span>
+                                    <span class="text-[12px] text-stone-400 mb-2 tracking-widest font-bold uppercase">生命靈數</span>
                                     <span class="text-2xl font-serif font-bold text-stone-800">${el.numbers.join('、')}</span>
                                 </div>
                                 <div class="flex flex-col items-center">
-                                    <span class="text-[10px] text-stone-400 mb-2 tracking-widest font-bold uppercase">中醫體質</span>
+                                    <span class="text-[12px] text-stone-400 mb-2 tracking-widest font-bold uppercase">中醫體質</span>
                                     <div class="space-y-0.5">${el.constitutions.map(c => `<span class="block text-sm text-stone-700 font-serif font-bold">${c}</span>`).join('')}</div>
                                 </div>
                             </div>
