@@ -50,7 +50,6 @@
         html { scroll-behavior: smooth; }
         body { background-color: #f5f3ef; color: #444; }
         
-        /* 滾動後的導覽列樣式 */
         .nav-scrolled { background-color: rgba(28, 25, 23, 0.95) !important; padding-top: 1rem !important; padding-bottom: 1rem !important; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
         .nav-scrolled #nav-container { color: white !important; }
         .nav-scrolled .scroll-link { color: #d6d3d1 !important; }
@@ -141,11 +140,11 @@
         </div>
     </section>
 
-    <!-- 2. 五行節拍 -->
+    <!-- 2. 五行關係 -->
     <section id="symptoms" class="py-24 bg-white scroll-mt-20">
         <div class="max-w-6xl mx-auto px-6">
             <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-serif font-bold text-stone-800 mb-6 leading-[1.2]  style="line-height:1.2;">
+                <h2 class="text-4xl md:text-5xl font-serif font-bold text-stone-800 mb-6 leading-[1.2]" style="line-height:1.2;">
                     五行不是玄學 <br/> <span class="text-el-fire">是你每天的能量節拍</span>
                 </h2>
                 <div class="w-24 h-1 bg-brand-gold mx-auto mb-8"></div>
@@ -154,7 +153,7 @@
             <div class="flex flex-col lg:flex-row items-center gap-16">
                 <div class="w-full lg:w-1/2 flex justify-center">
                     <div class="w-full max-w-md aspect-square rounded-[3rem] overflow-hidden shadow-xl border border-stone-50 bg-stone-50 group">
-                        <img src="./relation.png" alt="五行節拍圖示" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-90 group-hover:opacity-100">
+                        <img id="symptoms-hero-img" src="https://aliztw.github.io/2026-taiwan-aromatherapy-conference/images/hero/symptoms-hero.jpg" alt="五行節拍圖示" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-90 group-hover:opacity-100">
                     </div>
                 </div>
                 <div class="w-full lg:w-1/2 space-y-8">
@@ -202,7 +201,7 @@
         </div>
     </section>
 
- <footer id="footer" class="bg-stone-900 text-stone-400 py-16 mt-auto">
+    <footer id="footer" class="bg-stone-900 text-stone-400 py-16 mt-auto">
         <div class="app-container">
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12 border-b border-stone-800 pb-12">
                 <div class="col-span-1 md:col-span-2 space-y-4">
@@ -221,7 +220,7 @@
                         <a href="https://www.facebook.com/ALIZTW" target="_blank" class="flex-shrink-0 w-10 h-10 rounded-full bg-stone-800 flex items-center justify-center hover:bg-amber-600 hover:text-white transition-all"><i data-lucide="facebook" class="w-5 h-5"></i></a>
                         <a href="https://www.instagram.com/aliz_aromacreator/" target="_blank" class="flex-shrink-0 w-10 h-10 rounded-full bg-stone-800 flex items-center justify-center hover:bg-amber-600 hover:text-white transition-all"><i data-lucide="instagram" class="w-5 h-5"></i></a>
                         <a href="https://lin.ee/ZwEOveq" target="_blank" class="flex-shrink-0 w-10 h-10 rounded-full bg-stone-800 flex items-center justify-center hover:bg-amber-600 hover:text-white overflow-hidden group transition-all">
-                            <div class="w-full h-full flex items-center justify-center text-xs font-bold">LINE</div>
+                            <div class="w-full h-full flex items-center justify-center text-xs font-bold text-white">LINE</div>
                         </a>
                         <a href="https://www.aliztwshop.com/" target="_blank" class="flex-shrink-0 w-10 h-10 rounded-full bg-stone-800 flex items-center justify-center hover:bg-amber-600 hover:text-white transition-all"><i data-lucide="globe" class="w-5 h-5"></i></a>
                     </div>
@@ -235,28 +234,31 @@
     
     <!-- 整合後的 JavaScript 邏輯 -->
     <script>
+        // 設定 GitHub 圖片基礎路徑 (請根據您的 GitHub Pages 網址修改)
+        const IMAGE_BASE_URL = 'https://aliztw.github.io/2026-taiwan-aromatherapy-conference/images/';
+
         const LIFE_PATH_NUMBERS = [
-            { id: 1, role: "開創者", keywords: ["領導", "獨立", "自信"], description: "天生的領導者，擁有極強的開創能力與自主意識。", color: "text-el-wood", bgGradient: "from-el-wood/20 to-transparent", src= "./星球_1" },
-            { id: 2, role: "協調者", keywords: ["合作", "敏感", "平衡"], description: "擅長溝通與協調，擁有敏銳的直覺與強大的同理心。", color: "text-el-water", bgGradient: "from-el-water/20 to-transparent", imageUrl: "./星球_2" },
-            { id: 3, role: "表達者", keywords: ["熱情", "創意", "樂觀"], description: "具備卓越的表達能力與藝術細胞，用熱情感染他人。", color: "text-el-fire", bgGradient: "from-el-fire/20 to-transparent", imageUrl: "./星球_3" },
-            { id: 4, role: "建設者", keywords: ["安全", "規律", "可靠"], description: "追求穩定與安全感，做事腳踏實地，是值得信賴的執行者。", color: "text-el-earth", bgGradient: "from-el-earth/20 to-transparent", imageUrl: "./星球_4" },
-            { id: 5, role: "探索者", keywords: ["冒險", "適應", "多才"], description: "嚮往自由與新鮮感，適應力強且充滿創意。", color: "text-orange-500", bgGradient: "from-orange-500/20 to-transparent", imageUrl: "./星球_5" },
-            { id: 6, role: "照顧者", keywords: ["和諧", "責任", "療癒"], description: "充滿愛與責任感，追求環境的和諧，是天生的療癒者。", color: "text-amber-700", bgGradient: "from-amber-700/20 to-transparent", imageUrl: "./星球_6" },
-            { id: 7, role: "思考者", keywords: ["真理", "分析", "內省"], description: "追求事物的真理與本質，喜歡深入研究並擁抱孤獨。", color: "text-el-metal", bgGradient: "from-el-metal/20 to-transparent", imageUrl: "./星球_7" },
-            { id: 8, role: "實踐者", keywords: ["力量", "成功", "掌控"], description: "具備強大的意志力與統籌能力，擅長實現願景。", color: "text-yellow-600", bgGradient: "from-yellow-600/20 to-transparent", imageUrl: "./星球_8" },
-            { id: 9, role: "奉獻者", keywords: ["夢想", "靈性", "大愛"], description: "擁有開闊的心胸與人道精神，致力於奉獻與美好。", color: "text-blue-500", bgGradient: "from-blue-500/20 to-transparent", imageUrl: "./星球_9" },
+            { id: 1, role: "開創者", keywords: ["領導", "獨立", "自信"], description: "天生的領導者，擁有極強的開創能力與自主意識。", color: "text-el-wood", bgGradient: "from-el-wood/20 to-transparent", imageFileName: "人物_1.jpg" },
+            { id: 2, role: "協調者", keywords: ["合作", "敏感", "平衡"], description: "擅長溝通與協調，擁有敏銳的直覺與強大的同理心。", color: "text-el-water", bgGradient: "from-el-water/20 to-transparent", imageFileName: "numbers/n2.jpg" },
+            { id: 3, role: "表達者", keywords: ["熱情", "創意", "樂觀"], description: "具備卓越的表達能力與藝術細胞，用熱情感染他人。", color: "text-el-fire", bgGradient: "from-el-fire/20 to-transparent", imageFileName: "numbers/n3.jpg" },
+            { id: 4, role: "建設者", keywords: ["安全", "規律", "可靠"], description: "追求穩定與安全感，做事腳踏實地，是值得信賴的執行者。", color: "text-el-earth", bgGradient: "from-el-earth/20 to-transparent", imageFileName: "numbers/n4.jpg" },
+            { id: 5, role: "探索者", keywords: ["冒險", "適應", "多才"], description: "嚮往自由與新鮮感，適應力強且充滿創意。", color: "text-orange-500", bgGradient: "from-orange-500/20 to-transparent", imageFileName: "numbers/n5.jpg" },
+            { id: 6, role: "照顧者", keywords: ["和諧", "責任", "療癒"], description: "充滿愛與責任感，追求環境的和諧，是天生的療癒者。", color: "text-amber-700", bgGradient: "from-amber-700/20 to-transparent", imageFileName: "numbers/n6.jpg" },
+            { id: 7, role: "思考者", keywords: ["真理", "分析", "內省"], description: "追求事物的真理與本質，喜歡深入研究並擁抱孤獨。", color: "text-el-metal", bgGradient: "from-el-metal/20 to-transparent", imageFileName: "numbers/n7.jpg" },
+            { id: 8, role: "實踐者", keywords: ["力量", "成功", "掌控"], description: "具備強大的意志力與統籌能力，擅長實現願景。", color: "text-yellow-600", bgGradient: "from-yellow-600/20 to-transparent", imageFileName: "numbers/n8.jpg" },
+            { id: 9, role: "奉獻者", keywords: ["夢想", "靈性", "大愛"], description: "擁有開闊的心胸與人道精神，致力於奉獻與美好。", color: "text-blue-500", bgGradient: "from-blue-500/20 to-transparent", imageFileName: "numbers/n9.jpg" },
         ];
 
         const CONSTITUTIONS = [
-            { id: "peace", name: "平和體質", features: ["面色紅潤", "精神充沛"], description: "氣血調和，最健康穩定的基礎狀態。", imageUrl: "./人物_1", color: "bg-pink-100" },
-            { id: "yang", name: "陽虛體質", features: ["手腳冰冷", "畏寒怕冷"], description: "體內能量不足，容易感到寒冷。", imageUrl: "./人物_2", color: "bg-blue-100" },
-            { id: "qi_def", name: "氣虛體質", features: ["語音低微", "易累氣短"], description: "氣力不足，容易疲倦、出虛汗。", imageUrl: "./人物_3", color: "bg-indigo-100" },
-            { id: "yin", name: "陰虛體質", features: ["手足心熱", "口乾咽燥"], description: "體內水分不足，火氣偏旺。", imageUrl: "./人物_4", color: "bg-orange-100" },
-            { id: "phlegm", name: "痰濕體質", features: ["身體沈重", "舌苔厚膩"], description: "代謝遲緩，體內濕氣重。", imageUrl: "./人物_5", color: "bg-emerald-100" },
-            { id: "damp_heat", name: "濕熱體質", features: ["面部油垢", "口苦尿黃"], description: "濕與熱互結，體表容易出油。", imageUrl: "./人物_6", color: "bg-yellow-100" },
-            { id: "blood", name: "血瘀體質", features: ["皮膚暗沉", "易現瘀斑"], description: "氣血運行不暢，皮膚容易出現暗點。", imageUrl: "./人物_7", color: "bg-red-100" },
-            { id: "qi_stagnation", name: "氣鬱體質", features: ["多愁善感", "胸脅脹滿"], description: "情緒鬱滯不舒，容易悶悶不樂。", imageUrl: "./人物_8", color: "bg-slate-200" },
-            { id: "special", name: "特稟體質", features: ["過敏體質", "鼻塞流涕"], description: "先天稟賦異常，容易過敏。", imageUrl: "./人物_9", color: "bg-cyan-100" },
+            { id: "peace", name: "平和體質", features: ["面色紅潤", "精神充沛"], description: "氣血調和，最健康穩定的基礎狀態。", imageFileName: "constitutions/peace.jpg", color: "bg-pink-100" },
+            { id: "yang", name: "陽虛體質", features: ["手腳冰冷", "畏寒怕冷"], description: "體內能量不足，容易感到寒冷。", imageFileName: "constitutions/yang.jpg", color: "bg-blue-100" },
+            { id: "qi_def", name: "氣虛體質", features: ["語音低微", "易累氣短"], description: "氣力不足，容易疲倦、出虛汗。", imageFileName: "constitutions/qi_def.jpg", color: "bg-indigo-100" },
+            { id: "yin", name: "陰虛體質", features: ["手足心熱", "口乾咽燥"], description: "體內水分不足，火氣偏旺。", imageFileName: "constitutions/yin.jpg", color: "bg-orange-100" },
+            { id: "phlegm", name: "痰濕體質", features: ["身體沈重", "舌苔厚膩"], description: "代謝遲緩，體內濕氣重。", imageFileName: "constitutions/phlegm.jpg", color: "bg-emerald-100" },
+            { id: "damp_heat", name: "濕熱體質", features: ["面部油垢", "口苦尿黃"], description: "濕與熱互結，體表容易出油。", imageFileName: "constitutions/damp_heat.jpg", color: "bg-yellow-100" },
+            { id: "blood", name: "血瘀體質", features: ["皮膚暗沉", "易現瘀斑"], description: "氣血運行不暢，皮膚容易出現暗點。", imageFileName: "constitutions/blood.jpg", color: "bg-red-100" },
+            { id: "qi_stagnation", name: "氣鬱體質", features: ["多愁善感", "胸脅脹滿"], description: "情緒鬱滯不舒，容易悶悶不樂。", imageFileName: "constitutions/qi_stagnation.jpg", color: "bg-slate-200" },
+            { id: "special", name: "特稟體質", features: ["過敏體質", "鼻塞流涕"], description: "先天稟賦異常，容易過敏。", imageFileName: "constitutions/special.jpg", color: "bg-cyan-100" },
         ];
 
         const FIVE_ELEMENTS = [
@@ -273,7 +275,7 @@
         }
 
         function init() {
-            // 1. 攔截所有以 # 開頭的連結點擊事件，解決 AI Studio 拒絕連線的問題
+            // 1. 攔截所有以 # 開頭的連結點擊事件
             document.addEventListener('click', (e) => {
                 const target = e.target;
                 const anchor = target.closest('a');
@@ -281,34 +283,26 @@
                 if (anchor) {
                     const href = anchor.getAttribute('href');
                     if (href && href.startsWith('#')) {
-                        // 阻止預設導航行為，避免觸發預覽環境的安全導航錯誤
                         e.preventDefault();
-                        
                         const targetId = href.slice(1);
                         const targetElement = document.getElementById(targetId);
                         
                         if (targetElement) {
-                            // 執行平滑捲動
                             targetElement.scrollIntoView({ behavior: 'smooth' });
-                            
-                            // 如果是在行動版選單點擊，則收合選單
                             if (anchor.classList.contains('mobile-link')) {
                                 toggleMobileMenu();
                             }
                         } else if (targetId === 'hero' || targetId === '') {
-                            // 如果找不到 hero 或連結是空，捲動到頂部
                             window.scrollTo({ top: 0, behavior: 'smooth' });
                         }
                     }
                 }
             }, { capture: true });
 
-            // 初始化 Lucide 圖示
             if (typeof lucide !== 'undefined') {
                 lucide.createIcons();
             }
 
-            // 綁定行動版選單按鈕
             const mobileMenuBtn = document.getElementById('mobile-menu-btn');
             if (mobileMenuBtn) {
                 mobileMenuBtn.addEventListener('click', (e) => {
@@ -317,7 +311,6 @@
                 });
             }
 
-            // 處理滾動導覽列視覺變化
             window.addEventListener('scroll', () => {
                 const navbar = document.getElementById('navbar');
                 if (navbar) {
@@ -378,7 +371,7 @@
                     constContainer.innerHTML += `
                         <div class="group bg-white rounded-[3rem] p-10 shadow-sm hover:shadow-xl transition-all duration-300 border border-transparent hover:border-brand-gold/20 flex flex-col items-center text-center relative">
                             <div class="${c.color} w-32 h-32 rounded-full mb-8 overflow-hidden border-4 border-white shadow-lg group-hover:scale-110 transition-transform duration-500">
-                               <img src="${c.imageUrl}" alt="${c.name}" class="w-full h-full object-cover" />
+                               <img src="${IMAGE_BASE_URL}${c.imageFileName}" alt="${c.name}" class="w-full h-full object-cover" onerror="this.src='https://api.dicebear.com/7.x/avataaars/svg?seed=${c.id}'" />
                             </div>
                             <h4 class="text-2xl font-serif font-bold text-stone-800 mb-4">${c.name}</h4>
                             <div class="flex flex-wrap justify-center gap-2 mb-6">${c.features.map(f => `<span class="text-[10px] bg-stone-100 text-stone-500 px-3 py-1 rounded-full font-bold tracking-wider uppercase border border-stone-200">${f}</span>`).join('')}</div>
@@ -401,7 +394,7 @@
                             <div class="relative mb-8 mt-6">
                                <div class="absolute inset-0 bg-gradient-to-br ${n.bgGradient} rounded-full blur-2xl opacity-0 group-hover:opacity-40 transition-opacity duration-700"></div>
                                <div class="relative w-32 h-32 rounded-full overflow-hidden border-4 border-white shadow-lg group-hover:scale-110 transition-transform duration-500 z-10">
-                                  <img src="${n.imageUrl}" alt="${n.role}" class="w-full h-full object-cover" />
+                                  <img src="${IMAGE_BASE_URL}${n.imageFileName}" alt="${n.role}" class="w-full h-full object-cover" onerror="this.src='https://api.dicebear.com/7.x/shapes/svg?seed=${n.id}'" />
                                </div>
                             </div>
                             <h4 class="text-2xl font-serif font-bold text-stone-800 mb-4 tracking-wide">${n.role}</h4>
@@ -413,7 +406,6 @@
             }
         }
 
-        // 執行初始化
         document.addEventListener('DOMContentLoaded', init);
     </script>
 </body>
