@@ -52,9 +52,14 @@
         
         .nav-scrolled { background-color: rgba(28, 25, 23, 0.95) !important; padding-top: 1rem !important; padding-bottom: 1rem !important; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
         .nav-scrolled #nav-container { color: white !important; }
-        .nav-scrolled .scroll-link { color: #d6d3d1 !important; }
-        .nav-scrolled .scroll-link:hover { color: #c5a059 !important; }
-        .nav-scrolled #mobile-menu-btn { color: white !important; }
+        
+        /* 一般選單連結在捲動後的樣式 */
+        .nav-scrolled .scroll-link { color: #d6d3d1; }
+        .nav-scrolled .scroll-link:hover { color: #c5a059; }
+
+        /* 品牌標題專用樣式：捲動後保持純白且不變色 */
+        .nav-scrolled .brand-link { color: white !important; }
+        .nav-scrolled .brand-link:hover { color: white !important; }
 
         .app-container {
             width: 100%;
@@ -75,8 +80,8 @@
     <!-- 導覽列 -->
     <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-6 bg-transparent">
         <div class="app-container flex justify-between items-center text-stone-800 transition-colors duration-300" id="nav-container">
-            <!-- Logo -->
-            <a href="#hero" class="scroll-link">
+            <!-- Logo & Brand Title -->
+            <a href="#hero" class="scroll-link brand-link">
                 <div class="flex items-center space-x-2 cursor-pointer group">
                     <img src="https://img.shoplineapp.com/media/image_clips/693fd310ce43e58dabfdaa56/original.png?1765790479=&owner_id=5caf39294d91a10001727c79" alt="Logo" class="w-10 h-10 object-contain">
                     <div class="flex flex-col">
@@ -386,12 +391,6 @@
                 LIFE_PATH_NUMBERS.forEach(n => {
                     numContainer.innerHTML += `
                         <div class="group bg-white rounded-[3rem] p-10 shadow-sm hover:shadow-xl transition-all duration-300 border border-transparent hover:border-brand-gold/20 flex flex-col items-center text-center relative">
-                            
-                            <!-- 數字標籤 -->
-                            <div class="absolute top-6 left-6 bg-stone-50/80 backdrop-blur-sm px-4 py-1.5 border border-stone-100 z-20 flex items-center gap-2 rounded-full shadow-sm">
-                              <div class="h-2 w-2 rounded-full ${n.color.replace('text-', 'bg-')}"></div>
-                              <span class="text-sm font-serif font-bold text-stone-600 tracking-widest">生命靈數 ${n.id}</span>
-                            </div>
 
                             <!-- 圖片容器：優化手機完整呈現 -->
                             <div class="relative w-48 h-48 mb-6 mt-10 flex items-center justify-center">
